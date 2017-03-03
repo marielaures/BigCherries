@@ -1,0 +1,13 @@
+Here is the list of your recipes:
+
+{% for recipe in recipes %}
+
+<div>
+    <h2>{{ recipe.name }}</h2>
+    <div>
+    {{ recipe.content }}
+    </div>
+    <hr>
+</div>
+
+{% endfor %}
