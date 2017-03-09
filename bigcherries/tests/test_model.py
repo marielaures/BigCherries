@@ -1,8 +1,9 @@
 from django.test import TestCase
+from nose.tools import eq_
 
 from bigcherries.models import (
-    Conversion,
     Ingredient,
+    IngredientConversion,
     IngredientRecipe,
     MeasurementUnit,
     Recipe,
@@ -38,7 +39,7 @@ class ModelTestCase(TestCase):
         )
 
         ingredients = r.get_ingredients()
-        assert len(ingredients) == 1
-        assert ingredients[0].ingredient.name == "Moutarde"
-        assert ingredients[0].unit.name == "gram"
-        assert ingredients[0].qty == 10.5
+        eq_(len(ingredients), 1)
+        eq_(ingredients[0].ingredient.name, "Moutarde")
+        eq_(ingredients[0].unit.name, "kilogram")
+        eq_(ingredients[0].qty, 10.5)
